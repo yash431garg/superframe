@@ -1,0 +1,60 @@
+.inputForm {
+    margin: 0 25px;
+
+}
+
+.inputForm>input {
+    width: 40%;
+    padding: 10px;
+    border-radius: 5px;
+    outline: none;
+    border: 1px solid var(--dark-color);
+    color: var(--dark-color);
+}
+
+.inputForm>button {
+
+    width: 10%;
+    border-radius: 5px;
+    background-color: #FFFFFF;
+    border: 0;
+    color: var(--dark-color);
+    /* border-radius: .5rem; */
+    margin-left: 10px;
+    box-sizing: border-box;
+
+    padding: 10px;
+    text-align: center;
+    text-decoration: none #D1D5DB solid;
+    text-decoration-thickness: auto;
+    box-shadow: 0 1px 3px 0 rgba(0, 0, 0, 0.1), 0 1px 2px 0 rgba(0, 0, 0, 0.06);
+    cursor: pointer;
+    user-select: none;
+    -webkit-user-select: none;
+    touch-action: manipulation;
+}
+
+.inputForm>button :hover {
+    background-color: rgb(249, 250, 251);
+}
+
+.inputForm>button :focus {
+    outline: 2px solid transparent;
+    outline-offset: 2px;
+}
+
+.inputForm>button :focus-visible {
+    box-shadow: none;
+}
+
+@media only screen and (max-width: 700px) {
+
+    .inputForm>input {
+        width: 60%;
+    }
+
+    .inputForm>button {
+
+        width: 30%;
+    }
+}

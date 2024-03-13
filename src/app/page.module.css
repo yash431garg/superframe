@@ -1,0 +1,16 @@
+.blogGrid {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    padding: 10px;
+}
+
+.blogItem {
+    /* width: 20%; */
+    box-shadow: rgba(0, 0, 0, 0.16) 0px 1px 4px;
+    padding: 15px;
+    margin: 10px;
+    width: 50%;
+    border-radius: 5px;
+}
