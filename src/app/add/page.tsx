@@ -91,7 +91,7 @@ export default function Home() {
   }
 
   return (
-    <div className="">
+    <div className="mt-10">
 
       {/* <p className="flex flex-row justify-center items-center mb-5 sm:text-lg text-base">
         👋 Hi, Enter your blog link to generate your cast

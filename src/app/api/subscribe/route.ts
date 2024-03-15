@@ -49,6 +49,8 @@ export async function POST(
         user_email: data?.[0].user_email,
       });
 
+      console.log(res.error);
+
       if (res.error) {
         return new NextResponse(
           getFrameHtmlResponse({

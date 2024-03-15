@@ -1,17 +1,5 @@
-.header,
-.headerRight {
-    display: flex;
-    flex-direction: row;
-    justify-content: space-between;
-    align-items: center;
-}
-
-
-
 .header {
-    padding: 10px 25px;
-    margin-bottom: 25px;
-    background-color: transparent;
+
     box-shadow: inset 0 0 0.5px 1px hsla(0, 0%,
             100%, 0.075),
         /* shadow ring 👇 */
@@ -20,27 +8,4 @@
         0 0.3px 0.4px hsla(0, 0%, 0%, 0.02),
         0 0.9px 1.5px hsla(0, 0%, 0%, 0.045),
         0 3.5px 6px hsla(0, 0%, 0%, 0.09);
-}
-
-.headerRight>a {
-    text-decoration: none;
-
-    color: var(--black-color);
-}
-
-.headerRight>div>button {
-    margin-left: 10px;
-}
-
-@media only screen and (max-width: 700px) {
-
-    .header {
-        width: 100%;
-        padding: 10px 5px;
-    }
-
-    .headerRight {
-        width: 35%;
-    }
-
 }

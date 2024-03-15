@@ -14,3 +14,9 @@
     width: 50%;
     border-radius: 5px;
 }
+
+@media only screen and (max-width: 700px) {
+    .blogItem {
+        width: 90%;
+    }
+}
