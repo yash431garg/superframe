@@ -28,8 +28,8 @@ function page() {
         "Content-Type": "application/json"
       }
     })
-    const json = await response?.json()
-    if (response.ok) { setEvents(json); setIsLoading(false) }
+
+    if (response.ok) { setEvents(await response?.json()); setIsLoading(false) }
   }
 
 

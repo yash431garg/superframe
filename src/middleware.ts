@@ -1,17 +1,4 @@
-import { NextResponse } from 'next/server';
-import type { NextRequest } from 'next/server';
-import { getSession, logout } from '@/lib';
-
-export async function middleware(request: NextRequest) {
-  const path = request.nextUrl.pathname;
-  const isPublicPath = path === '/auth' || path === '/signup';
-
-  const session = await getSession();
-
-  if (!isPublicPath && !session) {
-    return NextResponse.redirect(new URL('/auth', request.nextUrl));
-  }
-}
+export { default } from 'next-auth/middleware';
 
 // See "Matching Paths" below to learn more
 export const config = {

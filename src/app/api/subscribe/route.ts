@@ -6,6 +6,8 @@ import {
   getFrameHtmlResponse,
 } from '@coinbase/onchainkit';
 import { supabase } from '../../lib/supabase';
+import { getServerSession } from 'next-auth';
+import { authConfig } from '../../lib/auth';
 
 type ResponseData = {
   message: string;
@@ -17,9 +19,17 @@ export async function POST(
   req: NextRequest,
   res: NextApiResponse<ResponseData>
 ) {
-  let accountAddress: string | undefined = '';
+  // const session = await getServerSession(authConfig);
 
   const body: FrameRequest = await req.json();
+  const url = body.untrustedData.url;
+  const partAfterFrames = url.split('frames/')[1];
+  const blogDataQuery = await supabase
+    .from('events')
+    .select()
+    .eq('id', partAfterFrames);
+
+  const { data, error } = blogDataQuery;
 
   const { message } = await getFrameMessage(body, {
     neynarApiKey: 'NEYNAR_ONCHAIN_KIT',
@@ -30,12 +40,13 @@ export async function POST(
 
     // Validate if the input is a valid email
     const isEmailValid = validateEmail(inputText);
-
+    // console.log(res, session);
     if (isEmailValid) {
       // Store the email in the Supabase database'
       const res = await supabase.from('subscription').insert({
         email: inputText,
         fid: message.interactor.fid,
+        user_email: data?.[0].user_email,
       });
 
       if (res.error) {

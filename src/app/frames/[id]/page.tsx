@@ -41,13 +41,12 @@ export async function generateMetadata(
   const blogPost: any = await getSpecificBlog(id)
 
 
-
   return {
-    title: 'Subcasts',
-    description: 'Create your own casts.',
+    title: 'Luma Frames',
+    description: 'Create your own Event Frame.',
     openGraph: {
-      title: 'Subcasts',
-      description: 'Create your own casts.',
+      title: 'Luma Frames',
+      description: 'Create your own Event Frame.',
       images: `${blogPost?.image_link}`,
     },
     other:

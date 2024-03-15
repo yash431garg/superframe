@@ -1,50 +1,21 @@
 'use client'
-import { useRouter } from 'next/navigation'
 import classname from './Header.module.css'
-
 import Link from 'next/link'
-import { getSession } from '@/lib'
+import { signOut } from "next-auth/react";
+import { useSession } from "next-auth/react"
 
-import { toast } from 'react-hot-toast';
-import { useEffect, useState } from 'react';
 
 export default function Header() {
-    const router = useRouter()
-    const [session, setSession] = useState('')
-
-    const logout = async () => {
-        try {
-            await fetch('/api/auth', {
-                method: 'GET',
-                headers: {
-                    "Content-Type": "application/json"
-                }
-            })
-            toast.success("Logout Success");
-            router.push("/auth")
-        } catch {
-            toast.error("Logout Failed");
-        }
-    };
-
-
-    useEffect(() => {
-        const clear = async () => { // Create a new async function: clear
-            setSession(await getSession())
-        };
-        clear()
-    }, [logout])
-
-
+    const { data: session, status } = useSession()
 
     return (
         <div className={classname.header}>
             <Link href="/" className='text-2xl'>Luma Frames</Link>
             <div className={classname.headerRight}>
-                {session ? <div><Link href="/add" className='border px-4 py-2 m-4 rounded-md'>Create Frame</Link>
-                    <button onClick={() => logout()} className="border border-gray-200 bg-gray-200 text-gray-700 rounded-md px-4 py-2 m-2 transition duration-500 ease select-none hover:bg-gray-300 focus:outline-none focus:shadow-outline">
+                {session ? <div className='flex flex-row items-center justify-center'><Link href="/add" className='border px-4 py-2 m-4 rounded-md'>Create Frame</Link>
+                    <button onClick={() => signOut()} className="border border-gray-200 bg-gray-200 text-gray-700 rounded-md px-4 py-2 m-2 transition duration-500 ease select-none hover:bg-gray-300 focus:outline-none focus:shadow-outline">
                         Logout
-                    </button> </div> : <Link href="/auth">Sign in</Link>}
+                    </button><img className="w-10 h-10 p-1 rounded-full ring-2 ring-gray-300 dark:ring-gray-500" src={session?.user?.image} alt="Bordered avatar" /> </div> : <Link href="/auth">Sign in</Link>}
             </div>
         </div>
     )

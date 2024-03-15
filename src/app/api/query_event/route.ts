@@ -1,6 +1,8 @@
 import type { NextApiRequest, NextApiResponse } from 'next';
 import { NextRequest, NextResponse } from 'next/server';
 import { supabase } from '../../lib/supabase';
+import { getServerSession } from 'next-auth';
+import { authConfig } from '../../lib/auth';
 
 type ResponseData = {
   id: number;
@@ -10,9 +12,14 @@ type ResponseData = {
 
 export async function POST(req: NextRequest) {
   const data = await req.json(); // This contains the data sent in the POST request
-  const res = await supabase
-    .from('events')
-    .insert({ event: data.blogLink, image_link: data.linkResult.img });
+  const session = await getServerSession(authConfig);
+
+  const res = await supabase.from('events').insert({
+    event: data.blogLink,
+    image_link: data.linkResult.img,
+    user_email: session?.user?.email,
+  });
+
   if (res.error != null) {
     return NextResponse.json({ error: res.statusText }, { status: 401 });
   }
@@ -22,7 +29,11 @@ export async function POST(req: NextRequest) {
 }
 
 export async function GET(req: NextRequest, res: NextApiResponse) {
-  const blogsDataQuery = await supabase.from('events').select();
+  const session = await getServerSession(authConfig);
+  const blogsDataQuery = await supabase
+    .from('events')
+    .select()
+    .eq('user_email', session?.user?.email);
 
   const { data, error } = blogsDataQuery;
   if (error) throw error;
