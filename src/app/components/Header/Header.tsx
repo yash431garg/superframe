@@ -13,7 +13,8 @@ export default function Header() {
             <Link href="/" className='text-2xl'>Luma Frames</Link>
             <div className={classname.headerRight}>
                 {session?.user ? (
-                    <div>
+                    <div className='flex flex-row items-center justify-center'>
+                        <Link href="/add" className='border px-4 py-2 m-4 rounded-md'>Create Frame</Link>
                         <button onClick={() => signOut()} className="border border-gray-200 bg-gray-200 text-gray-700 rounded-md px-4 py-2 m-2 transition duration-500 ease select-none hover:bg-gray-300 focus:outline-none focus:shadow-outline">
                             Logout
                         </button>
