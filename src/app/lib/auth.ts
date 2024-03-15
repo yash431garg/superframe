@@ -5,7 +5,6 @@ import { SupabaseAdapter } from '@next-auth/supabase-adapter';
 import CredentialsProvider from 'next-auth/providers/credentials';
 import GoogleProvider from 'next-auth/providers/google';
 import { supabase } from '../lib/supabase';
-import clientPromise from './mongodb';
 
 export const authConfig: NextAuthOptions = {
   secret: process.env.NEXTAUTH_SECRET,
