@@ -1,5 +1,5 @@
 import React from 'react'
-import className from './Footer.module.css'
+
 
 function Footer() {
     return (
