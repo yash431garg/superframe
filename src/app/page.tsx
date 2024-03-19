@@ -7,8 +7,6 @@ import Copyclip from './utils/Copyclip';
 const NEXT_PUBLIC_URL = process.env.NEXT_PUBLIC_APP_URL
 
 function page() {
-  const share = useRouter();
-
   const [events, setEvents] = useState([])
   const [loading, setIsLoading] = useState(false)
 
@@ -50,11 +48,11 @@ function page() {
               <span className="">{item?.event}</span>
             </div>
             <a
-              href={NEXT_PUBLIC_URL + `/frames/` + item?.id}
+              href={NEXT_PUBLIC_URL + `/subscribers/` + item?.id}
               rel="noopener noreferrer"
               className="font-extrabold"
             >
-              ↗️ {item?.id}
+              ↗️ All Subscribers  {item?.id}
             </a>
             <Copyclip id={String(item?.id)} />
           </div>

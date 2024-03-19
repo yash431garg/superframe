@@ -11,6 +11,9 @@ export const authConfig: NextAuthOptions = {
   pages: {
     signIn: '/auth', // Path to your custom sign-in page
   },
+  session: {
+    strategy: 'jwt',
+  },
   providers: [
     CredentialsProvider({
       name: 'Sign in',
@@ -32,7 +35,6 @@ export const authConfig: NextAuthOptions = {
           .select('*')
           .eq('email', credentials.email)
           .single();
-        console.log(error);
         //Verify Password here
         //We are going to use a simple === operator
         //In production DB, passwords should be encrypted using something like bcrypt...
@@ -53,11 +55,6 @@ export const authConfig: NextAuthOptions = {
     url: process.env.NEXT_PUBLIC_SUPA_URL as string,
     secret: process.env.SUPA_SERVICE_ROLE as string,
   }),
-  // adapter: MongoDBAdapter(clientPromise),
-  session: {
-    // Set it as jwt instead of database
-    strategy: 'jwt',
-  },
   callbacks: {
     // async jwt({ token, user }) {
     //   console.log(token, '1', user);
