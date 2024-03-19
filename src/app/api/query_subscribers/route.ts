@@ -12,10 +12,7 @@ type ResponseData = {
   uuid: string;
 };
 
-export async function GET(
-  req: NextApiRequest & { url: string },
-  res: NextApiResponse
-) {
+export async function GET(req: NextRequest, res: NextApiResponse) {
   const url = new URL(req.url || '');
   const param = new URLSearchParams(url.searchParams);
   const id = param.get('id');
