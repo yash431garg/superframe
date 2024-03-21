@@ -13,7 +13,7 @@ export default async function SignInPage() {
 
     const paragraphStyle = {
         fontWeiht: "bold",
-        background: '-webkit-linear-gradient(#6863f8 , #ff891f )',
+        background: '-webkit-linear-gradient(#6863f8 , #F3F863 )',
         WebkitBackgroundClip: 'text',
         WebkitTextFillColor: 'transparent'
     };
