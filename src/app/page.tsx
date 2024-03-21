@@ -52,7 +52,7 @@ function page() {
               rel="noopener noreferrer"
               className="font-extrabold"
             >
-              ↗️ All Subscribers  {item?.id}
+              ↗️ All Registrations  {item?.id}
             </a>
             <Copyclip id={String(item?.id)} />
           </div>
