@@ -14,7 +14,7 @@ export default function Header() {
             0 0 0 1px hsla(0, 0%, 0%, 0.05),
             0 0.3px 0.4px hsla(0, 0%, 0%, 0.02),
             0 0.9px 1.5px hsla(0, 0%, 0%, 0.045),
-            0 3.5px 6px hsla(0, 0%, 0%, 0.09);`
+            0 3.5px 6px hsla(0, 0%, 0%, 0.09)`
         }} >
             <Link href="/" className="text-2xl md:text-lg">Luma Frames</Link>
             <div className="flex items-center space-x-2">
