@@ -7,6 +7,7 @@ import 'ag-grid-community/styles/ag-theme-quartz.css';
 
 function Subscribers({ params }) {
   const [subscribers, setSubscribers] = useState([]);
+  const [gridApi, setGridApi] = useState();
   var colDefs = [
     { headerName: 'Email', field: 'email' },
     { headerName: 'Created At', field: 'created_at' },
@@ -37,17 +38,45 @@ function Subscribers({ params }) {
     // Add any other options you need
   };
 
+  const onGridReady = (params) => {
+    setGridApi(params.api);
+  };
+
+  const exportCSV = () => {
+    const params = {
+      fileName: 'registration.csv',
+      columnSeparator: ',',
+    };
+    gridApi.exportDataAsCsv(params);
+    // gridApi.exportDataAsCsv(params);
+  };
+
   return (
-    <div
-      className={`${classname['ag-theme-quartz']} ag-theme-quartz-dark mt-10 mx-auto`} // applying the grid theme
-      style={{ height: 600, width: '80%' }} // the grid will fill the size of the parent container
-    >
-      <AgGridReact
-        gridOptions={gridOptions}
-        columnDefs={colDefs}
-        rowData={subscribers}
-      />
-    </div>
+    <>
+      <div className="mx-auto mt-4" style={{ width: '80%' }}>
+        <button
+          type="submit"
+          onClick={exportCSV}
+          className="text-gray-900 bg-gray-100 hover:bg-gray-200 focus:ring-4 focus:outline-none focus:ring-gray-100 font-medium rounded-lg text-sm px-5 py-2.5 text-center inline-flex items-center dark:focus:ring-gray-500"
+        >
+          Export Csv
+        </button>
+      </div>
+      <div
+        className={`${classname['ag-theme-quartz']} ag-theme-quartz-dark mt-2 mx-auto mb-5`} // applying the grid theme
+        style={{ height: 600, width: '80%' }} // the grid will fill the size of the parent container
+      >
+        <AgGridReact
+          gridOptions={gridOptions}
+          columnDefs={colDefs}
+          rowData={subscribers}
+          onGridReady={onGridReady}
+        />
+      </div>
+      <p className="flex flex-row justify-center items-center mb-5 sm:text-lg text-base text-[#FF204E]">
+        {`* You can import the data on your luma event and sent an invite to participants until we are working on to automate that.`}
+      </p>
+    </>
   );
 }
 
