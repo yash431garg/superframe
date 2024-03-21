@@ -23,7 +23,7 @@ export default async function SignInPage() {
 
             <div className="flex flex-col items-center mt-10 p-4 md:p-10 w-full md:w-4/12">
                 <p className="flex flex-row justify-center items-center text-center mb-5 text-4xl  italic" style={paragraphStyle}>
-                    Create a frame for you event with in just few steps.
+                    Create a frame for your event with in just few steps.
                 </p>
                 <h1 className="mt-6 mb-2 text-2xl md:text-4xl font-bold text-center">Sign In</h1>
                 <GoogleSignInButton />
