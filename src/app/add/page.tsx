@@ -120,7 +120,7 @@ function Home() {
         {`👋 Hi ${session?.user?.name}, Enter your event link to generate your cast`}
       </p>
       <form onSubmit={handleSubmit} className={`mx-6 flex flex-row justify-center items-center`}>
-        <input type="text" id="blog" name="blog" value={blogLink} onChange={handleChange} placeholder="Add Blog Link" className="w-8/12 sm:w-5/12 p-2 rounded-md outline-none border border-[#171717] text-[#171717]" />
+        <input type="text" id="blog" name="blog" value={blogLink} onChange={handleChange} placeholder="Add Event Link" className="w-8/12 sm:w-5/12 p-2 rounded-md outline-none border border-[#171717] text-[#171717]" />
         <button type="submit" className="text-gray-900 bg-gray-100 ml-2 hover:bg-gray-200 focus:ring-4 focus:outline-none focus:ring-gray-100 font-medium rounded-lg text-sm px-5 py-2.5 text-center inline-flex items-center dark:focus:ring-gray-500 me-2">
           Add +
         </button>
