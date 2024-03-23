@@ -116,7 +116,7 @@ function Home() {
 
   return (
     <div className="mt-10">
-      <p className="flex flex-row justify-center items-center mb-5 sm:text-lg text-base">
+      <p className="flex flex-row justify-center items-center mb-5 sm:text-lg text-base text-white">
         {`👋 Hi ${session?.user?.name}, Enter your event link to generate your cast`}
       </p>
       <form onSubmit={handleSubmit} className={`mx-6 flex flex-row justify-center items-center`}>

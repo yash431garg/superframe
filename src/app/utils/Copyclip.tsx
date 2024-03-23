@@ -13,8 +13,8 @@ const Copyclip: FC<CopyclipProps> = ({ id }) => {
             setShowTooltip(id)
             setTimeout(() => setShowTooltip(''), 1000);
         }} className="shareicon" >
-            <p className='cursor-pointer'>📃 Copy to clipboar</p>
-            {showTooltip === id && <span className="tooltip">Happy Casting!</span>}
+            <p className='cursor-pointer text-white'>📃 Copy to clipboar</p>
+            {showTooltip === id && <span className="tooltip text-white">Happy Casting!</span>}
         </div>
     )
 }
