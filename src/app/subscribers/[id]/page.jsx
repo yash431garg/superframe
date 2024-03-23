@@ -12,6 +12,7 @@ function Subscribers({ params }) {
     { headerName: 'Email', field: 'email' },
     { headerName: 'Created At', field: 'created_at' },
     { headerName: 'Event ID', field: 'event_id' },
+    { headerName: 'Fid', field: 'fid' },
   ];
 
   const GetSubscribersList = async () => {

@@ -20,6 +20,7 @@ export default function Header() {
             <div className="flex items-center space-x-2">
                 {session?.user ? (
                     <div className="flex items-center space-x-2">
+                        <Link href="/" className="border px-2 md:px-4 py-1 md:py-2 rounded-md text-sm md:text-base text-white">All Frames</Link>
                         <Link href="/add" className="border px-2 md:px-4 py-1 md:py-2 rounded-md text-sm md:text-base text-white">Create Frame</Link>
                         <button onClick={() => signOut()} className="border border-gray-200 bg-gray-200 text-gray-700 rounded-md px-2 md:px-4 py-1 md:py-2 transition duration-500 ease select-none hover:bg-gray-300 focus:outline-none focus:shadow-outline text-sm md:text-base">Logout</button>
                         {session?.user.image && (
