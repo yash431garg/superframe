@@ -10,8 +10,8 @@ import "./globals.css";
 const roboto = Roboto({ subsets: ["latin"], weight: ['300'] });
 
 export const metadata: Metadata = {
-  title: "Luma Frames",
-  description: "Create frames for your Luma event",
+  title: "Superframe",
+  description: "Create and orgainse event in few steps.",
 };
 
 interface RootLayoutProps {
