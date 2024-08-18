@@ -1,9 +1,10 @@
 import React from 'react'
-import className from './spinner.module.css'
 
 function Spinnner() {
     return (
-        <div className={`${className.loader} mt-10 mx-auto`}></div>
+        <div className="flex items-center justify-center">
+        <div className="animate-spin rounded-full h-4 w-4 border-b-2 border-white mr-2"></div>
+      </div>
     )
 }
 

@@ -9,7 +9,7 @@ const Copyclip: FC<CopyclipProps> = ({ id }) => {
     const NEXT_PUBLIC_URL = process.env.NEXT_PUBLIC_APP_URL
     return (
         <div onClick={() => {
-            navigator.clipboard.writeText(NEXT_PUBLIC_URL + '/frames/' + id)
+            navigator.clipboard.writeText(NEXT_PUBLIC_URL + 'event?id=' + id)
             setShowTooltip(id)
             setTimeout(() => setShowTooltip(''), 1000);
         }} className="shareicon" >

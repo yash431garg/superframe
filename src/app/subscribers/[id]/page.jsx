@@ -10,8 +10,7 @@ function Subscribers({ params }) {
   const [gridApi, setGridApi] = useState();
   var colDefs = [
     { headerName: 'Email', field: 'email' },
-    { headerName: 'Created At', field: 'created_at' },
-    { headerName: 'Event ID', field: 'event_id' },
+    { headerName: 'Registration time', field: 'created_at' },
     { headerName: 'Fid', field: 'fid' },
   ];
 
@@ -24,7 +23,9 @@ function Subscribers({ params }) {
     });
 
     if (response.ok) {
-      setSubscribers(await response?.json());
+      const data = await response?.json()
+      console.log(data)
+      setSubscribers(data);
     }
   };
   useEffect(() => {
@@ -49,7 +50,6 @@ function Subscribers({ params }) {
       columnSeparator: ',',
     };
     gridApi.exportDataAsCsv(params);
-    // gridApi.exportDataAsCsv(params);
   };
 
   return (
@@ -74,9 +74,6 @@ function Subscribers({ params }) {
           onGridReady={onGridReady}
         />
       </div>
-      <p className="flex flex-row justify-center items-center mb-5 sm:text-lg text-base text-[#FF204E]">
-        {`* You can import the data on your luma event and sent an invite to participants until we are working on to automate that.`}
-      </p>
     </>
   );
 }

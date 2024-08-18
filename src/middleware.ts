@@ -1,6 +1,13 @@
-export { default } from 'next-auth/middleware';
+import { NextRequest, NextResponse } from 'next/server';
+import { getJwtPayload } from './app/actions/validate';
 
-// See "Matching Paths" below to learn more
+export async function middleware(request: NextRequest) {
+  const token = await getJwtPayload()
+  if(!token){
+    return NextResponse.redirect(new URL('/auth', request.nextUrl));
+  }  
+}
+
 export const config = {
   matcher: [
     '/',
