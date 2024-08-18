@@ -44,7 +44,7 @@ export default function RootLayout({ children }: RootLayoutProps): JSX.Element {
           }} />
         </main>
         </ProviderWrapper>
-        <Footer />
+        {/* <Footer /> */}
       </body>
     
     </html>
